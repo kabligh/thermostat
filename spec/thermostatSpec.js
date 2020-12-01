@@ -20,4 +20,27 @@ describe('Thermostat', function(){
     for (var i = 20; i > 10; i--) thermostat.down();
     expect(function(){ thermostat.down(); } ).toThrow(new Error('10 is the minimum temperature'));
   });
+  it('is in power saving mode by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+  it('can switch power saving mode off', function() {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  });
+  it('can switch power saving mode back on', function() {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    thermostat.switchPowerSavingModeOn();
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
+  describe('when power saving mode is on', function() {
+    it('has a maximum temperature of 25 in power saving mode', function() {
+      for (var i = 20; i < 25; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
+      // expect(function(){ thermostat.up(); }).toThrow(new Error('Power saving mode: 25 is max temperature'));
+    });
+  });
 })
