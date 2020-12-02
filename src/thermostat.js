@@ -5,9 +5,9 @@ class Thermostat {
   constructor() {
     this.MINIMUM_TEMPERATURE = 10;
     this.temperature = 20;
-    this.powerSavingMode = true
-    this.MAX_LIMIT_PSM_ON = 25
-    this.MAX_LIMIT_PSM_OFF = 32
+    this.powerSavingMode = true;
+    this.MAX_LIMIT_PSM_ON = 25;
+    this.MAX_LIMIT_PSM_OFF = 32;
   }
 
   getCurrentTemperature() {
@@ -15,7 +15,7 @@ class Thermostat {
   }
 
   up() {
-    if (this.isMinimumTemperature()) {
+    if (this.isMaximumTemperature()) {
       return;
     }
     this.temperature += 1;
