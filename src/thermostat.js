@@ -21,14 +21,14 @@ class Thermostat {
     if (this.isMaximumTemperature()) {
       return;
     }
-    this.temperature += 1;
+    return this.temperature += 1;
   }
 
   down() {
     if (this.isMinimumTemperature()) {
       throw Error('10 is the minimum temperature');
     }
-    this.temperature -= 1;
+    return this.temperature -= 1;
   }
 
   isMinimumTemperature() {
@@ -60,12 +60,12 @@ class Thermostat {
 
   energyUsage() {
     if (this.temperature < this.MEDIUM_ENERGY_USAGE_LIMIT) {
-      return 'low usage';
+      return 'low-usage';
     }
     if (this.temperature <= this.HIGH_ENERGY_USAGE_LIMIT) {
-      return 'medium usage';
+      return 'medium-usage';
     }
-    return 'high usage';
+    return 'high-usage';
   }
 
 };

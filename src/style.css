@@ -1,0 +1,15 @@
+body {}
+
+#master {width: 375px; margin: 0 auto;}
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: red;
+}
