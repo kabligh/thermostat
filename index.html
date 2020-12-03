@@ -23,16 +23,13 @@
     </section>
 
     <section>
-      <h3>Select your city:</h3>
-      <select id="current-city">
-        <option value=" "></option>
-        <option value="london">London</option>
-        <option value="new york">New York</option>
-        <option value="paris">Paris</option>
-        <option value="tokyo">Tokyo</option>
-      </select>
+      <h3>Enter your city:</h3>
+      <form id="select-city">
+      <input id="current-city" type="text" placeholder="Enter a city"></input>
+      <input type="submit"></input>
+      </form>
       <h3>Current temperature: <span id="city-temperature"></span></h3>
-      <h3>Feels like: <span id="feels"> C</span></h3>
+      <h3>Feels like: <span id="feels"></span></h3>
     </section>
 
   </body>
