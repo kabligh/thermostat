@@ -34,14 +34,6 @@ $(document).ready(function() {
     $('#temperature').attr('class', thermostat.energyUsage());
   }
 
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-  $('#current-temperature').text(data.main.temp);
-  })
-
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-  $('#feels').text(data.main.feels_like);
-  })
-
   $('#select-city').submit(function(event) {
     event.preventDefault();
     var city = $('#current-city').val();
@@ -49,13 +41,19 @@ $(document).ready(function() {
   })
 
   function displayWeather(city) {
-    var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
-    var token = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city;
+    var token = '&appid=e6d3e3ec5f351d81c755e4b487567f9f';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
       $('#city-temperature').text(data.main.temp);
       $('#feels').text(data.main.feels_like);
     })
   }
+
+  // function getShibe() {
+  //   return $.get('http://shibe.online/api/shibes?count=[1-100]&urls=[true/false]&httpsUrls=[true/false]')
+  // }
+  //
+  // $('#shibe').append(`<img src="${getShibe.responseJSON[0]}">`)
 
 })
